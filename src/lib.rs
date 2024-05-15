@@ -84,7 +84,7 @@ where
             .and_then(|content_type| content_type.to_str().ok());
 
         match content_type {
-            Some("application/octet-stream") => {
+            Some(CONTENT_TYPE_PROTOBUF) => {
                 let Protobuf(payload) = request
                     .extract::<Protobuf<T>,_>()
                     .await
@@ -92,7 +92,7 @@ where
 
                 Ok(Self::Protobuf(payload))
             },
-            Some("application/json") => {
+            Some(CONTENT_TYPE_JSON) => {
                 let Json(payload) = request
                     .extract::<Json<T>, _>()
                     .await
