@@ -5,8 +5,8 @@ use axum_extra::protobuf::Protobuf;
 use prost::Message;
 use serde::Serialize;
 
-const CONTENT_TYPE_PROTOBUF: &'static str = "application/octet-stream";
-const CONTENT_TYPE_JSON: &'static str = "application/json";
+pub const CONTENT_TYPE_PROTOBUF: &'static str = "application/octet-stream";
+pub const CONTENT_TYPE_JSON: &'static str = "application/json";
 
 pub enum JsonOrProtobuf<T> {
     Protobuf(T),
